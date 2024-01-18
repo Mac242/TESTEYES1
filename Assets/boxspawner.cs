@@ -7,13 +7,13 @@ using UnityEngine.UIElements;
 public class boxspawner : MonoBehaviour
 {   
     private GameObject [] cubes = new GameObject [25];
-    private GameObject Treefalling;
+    [SerializeField] GameObject Treefalling;
     public ParticleSystem fog;
     public bool firstTreeDown;
     // Start is called before the first frame update
     void Start()
     {
-       Treefalling = GameObject.FindWithTag("Finish");
+       
        firstTreeDown = false;
 
     }
@@ -36,10 +36,12 @@ public class boxspawner : MonoBehaviour
                
         
             Destroy(Treefalling);
+            Destroy(GameObject.FindWithTag("Finish"));
             fog.Play();
             firstTreeDown = true;
             }
 
          }
-    }   
+    }
+
 }
